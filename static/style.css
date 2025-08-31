@@ -36,10 +36,11 @@ pre {
 }
 
 .questionlistcss{
-  height: 85vh;
-  overflow-y: hidden;
-  padding-right: 10px;
+  height: 80vh;
+  overflow-y: auto;
+  padding-right: 15px;
 }
+
 .questionlistcss:hover{
   overflow-y: auto;
 }
