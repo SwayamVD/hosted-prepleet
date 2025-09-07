@@ -1,0 +1,146 @@
+{
+    "data": {
+        "problemsetQuestionListV2": {
+            "questions": [
+	{
+                    "difficulty": "EASY",
+                    "id": 100,
+                    "paidOnly": false,
+                    "questionFrontendId": "100",
+                    "status": "TO_DO",
+                    "title": "Same Tree",
+                    "titleSlug": "same-tree",
+                    "topicTags": [
+                        {
+                            "name": "Tree",
+                            "slug": "tree",
+                            "__typename": "CommonTagNode"
+                        },
+                        {
+                            "name": "Depth-First Search",
+                            "slug": "depth-first-search",
+                            "__typename": "CommonTagNode"
+                        },
+                        {
+                            "name": "Breadth-First Search",
+                            "slug": "breadth-first-search",
+                            "__typename": "CommonTagNode"
+                        },
+                        {
+                            "name": "Binary Tree",
+                            "slug": "binary-tree",
+                            "__typename": "CommonTagNode"
+                        }
+                    ],
+                    "frequency": null,
+                    "isInMyFavorites": false,
+                    "acRate": 0.6570564299013316,
+                    "contestPoint": null,
+                    "__typename": "ProblemSetQuestionNode"
+                }
+            ],
+            "totalLength": 3671,
+            "finishedLength": 0,
+            "hasMore": true
+        }
+    }
+}
+
+
+
+{
+  "New item": {
+    "query": "\n    query problemsetQuestionListV2($filters: QuestionFilterInput, $limit: Int, $searchKeyword: String, $skip: Int, $sortBy: QuestionSortByInput, $categorySlug: String) {\n  problemsetQuestionListV2(\n    filters: $filters\n    limit: $limit\n    searchKeyword: $searchKeyword\n    skip: $skip\n    sortBy: $sortBy\n    categorySlug: $categorySlug\n  ) {\n    questions {\n      id\n      titleSlug\n      title\n      translatedTitle\n      questionFrontendId\n      paidOnly\n      difficulty\n      topicTags {\n        name\n        slug\n        nameTranslated\n      }\n      status\n      isInMyFavorites\n      frequency\n      acRate\n      contestPoint\n    }\n    totalLength\n    finishedLength\n    hasMore\n  }\n}\n    ",
+    "variables": {
+      "skip": 0,
+      "limit": 100,
+      "categorySlug": "all-code-essentials",
+      "filters": {
+        "filterCombineType": "ALL",
+        "statusFilter": {
+          "questionStatuses": [],
+          "operator": "IS"
+        },
+        "difficultyFilter": {
+          "difficulties": [],
+          "operator": "IS"
+        },
+        "languageFilter": {
+          "languageSlugs": [],
+          "operator": "IS"
+        },
+        "topicFilter": {
+          "topicSlugs": [],
+          "operator": "IS"
+        },
+        "acceptanceFilter": {},
+        "frequencyFilter": {},
+        "frontendIdFilter": {},
+        "lastSubmittedFilter": {},
+        "publishedFilter": {},
+        "companyFilter": {
+          "companySlugs": [],
+          "operator": "IS"
+        },
+        "positionFilter": {
+          "positionSlugs": [],
+          "operator": "IS"
+        },
+        "contestPointFilter": {
+          "contestPoints": [],
+          "operator": "IS"
+        },
+        "premiumFilter": {
+          "premiumStatus": [],
+          "operator": "IS"
+        }
+      },
+      "searchKeyword": "",
+      "sortBy": {
+        "sortField": "DIFFICULTY",
+        "sortOrder": "ASCENDING"
+      },
+      "filtersV2": {
+        "filterCombineType": "ALL",
+        "statusFilter": {
+          "questionStatuses": [],
+          "operator": "IS"
+        },
+        "difficultyFilter": {
+          "difficulties": [],
+          "operator": "IS"
+        },
+        "languageFilter": {
+          "languageSlugs": [],
+          "operator": "IS"
+        },
+        "topicFilter": {
+          "topicSlugs": [],
+          "operator": "IS"
+        },
+        "acceptanceFilter": {},
+        "frequencyFilter": {},
+        "frontendIdFilter": {},
+        "lastSubmittedFilter": {},
+        "publishedFilter": {},
+        "companyFilter": {
+          "companySlugs": [],
+          "operator": "IS"
+        },
+        "positionFilter": {
+          "positionSlugs": [],
+          "operator": "IS"
+        },
+        "contestPointFilter": {
+          "contestPoints": [],
+          "operator": "IS"
+        },
+        "premiumFilter": {
+          "premiumStatus": [],
+          "operator": "IS"
+        }
+      }
+    },
+    "operationName": "problemsetQuestionListV2"
+  }
+}

@@ -1,16 +1,33 @@
 body {
-    background-color: #212529;
-    font-family: 'Raleway','Jost', 'Poppins', sans-serif;
+  background-color: #212529;
+  font-family: "Jost", "Poppins", sans-serif;
 }
 
-    .glass-card {
-      padding: 20px;
-      background-color: #2c3136;
-      border-radius: 10px;
-    }
+.glass-card {
+  padding: 20px;
+  background-color: #2c3136;
+  border-radius: 10px;
+}
+@media (max-width: 991.98px) {
+  .col-12:first-child {
+    margin-bottom: 2rem;
+  }
+
+  .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Ensure columns take full width on mobile */
+  .col-12 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
 
 /* Make both left and right columns fill viewport height */
-.left-col, .right-col {
+.left-col,
+.right-col {
   height: 90vh;
   overflow-y: auto;
   scrollbar-width: thin;
@@ -18,39 +35,66 @@ body {
 
 /* Ensure editor container fills its parent height */
 #editor {
-  height: 100%;
+  height: 300px;
   min-height: 400px; /* fallback for smaller screens */
 }
 
-.badge{
+.badge {
   font-weight: 300 !important;
 }
 
-.container-fluid{
-    padding-right: 50px !important;
-    padding-left: 50px !important;
+.container-fluid {
+  padding-right: 50px !important;
+  padding-left: 50px !important;
 }
 pre {
   overflow: visible;
   white-space: normal;
 }
 
-.questionlistcss{
+.questionlistcss {
   height: 80vh;
   overflow-y: auto;
   padding-right: 15px;
 }
 
-.questionlistcss:hover{
+.questionlistcss:hover {
   overflow-y: auto;
 }
 
 /* On mobile, reduce height for better fit */
 @media (max-width: 767.98px) {
-  .left-col, .right-col {
+  .left-col,
+  .right-col {
     height: 60vh;
   }
   #editor {
     min-height: 300px;
   }
+}
+
+/* Badges for Dark Backgrounds */
+.badge-dark-HARD {
+  background-color: #d32f2f; /* A darker, more muted red */
+  color: #fff;
+}
+
+.badge-dark-EASY {
+  background-color: #388e3c; /* A darker, forest green */
+  color: #fff;
+}
+
+.badge-dark-MEDIUM {
+  background-color: #fbc02d; /* A gold-like yellow that's easy to read */
+  color: #212529; /* Dark text for contrast */
+}
+
+.badge-dark-blue {
+  background-color: #1976d2; /* A deep, royal blue */
+  color: #fff;
+}
+
+.badge-dark-grey {
+  background-color: #424242; /* A medium-to-dark grey */
+  color: #fff;
 }

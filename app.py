@@ -37,7 +37,9 @@ def load_questions():
 
 all_questions = load_questions()
 
-
+@app.route("/testpage",methods=["GET"])
+def testpage():
+    return render_template("testpage.html")
 
 
 
@@ -289,6 +291,76 @@ def getquesset(name):
         print(f"Failed to fetch data: {response.status_code}")
 
 
+
+URL = "https://leetcode.com/graphql"
+DEFAULT_HEADERS = {
+    "Content-Type": "application/json",
+    "User-Agent": "Mozilla/5.0",
+}
+
+
+
+PROBLEMSET_QUERY = """
+query problemsetQuestionListV2(
+  $filters: QuestionFilterInput,
+  $limit: Int,
+  $searchKeyword: String,
+  $skip: Int,
+  $sortBy: QuestionSortByInput,
+  $categorySlug: String
+) {
+  problemsetQuestionListV2(
+    filters: $filters
+    limit: $limit
+    searchKeyword: $searchKeyword
+    skip: $skip
+    sortBy: $sortBy
+    categorySlug: $categorySlug
+  ) {
+    questions {
+      id
+      titleSlug
+      title
+      questionFrontendId
+      difficulty
+      acRate
+    }
+    totalLength
+    hasMore
+  }
+}
+"""
+
+@app.route("/search",methods=["GET"])
+def get_problem_set(category=None, search=None, limit=20, skip=0):
+    headers = DEFAULT_HEADERS.copy()
+    headers["Referer"] = "https://leetcode.com/problemset/all/"
+    search = request.args.get("search")
+    category = request.args.get("category")
+    limit = request.args.get("limit", 20, type=int)
+    skip = request.args.get("skip", 0, type=int)
+
+    variables = {
+        "skip": skip,
+        "limit": limit,
+        "categorySlug": category or "all-code-essentials",
+        "filters": {"filterCombineType": "ALL"},
+        "sortBy": {"sortField": "CUSTOM", "sortOrder": "ASCENDING"},
+    }
+    if search:
+        variables["searchKeyword"] = search
+
+    payload = {
+        "query": PROBLEMSET_QUERY,
+        "variables": variables,
+        "operationName": "problemsetQuestionListV2",
+    }
+
+    resp = requests.post(URL, headers=headers, json=payload)
+    data = resp.json()
+    if resp.status_code != 200 or "errors" in data:
+        return None
+    return jsonify(data["data"]["problemsetQuestionListV2"]["questions"]) 
 
 if __name__ == '__main__':
     app.run(debug=True)
